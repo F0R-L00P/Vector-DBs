@@ -1,6 +1,7 @@
 import os
 import requests
 
+from agents.linkedin_agents import profile_lookup
 from langchain import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.chat_models import ChatOllama, ChatOpenAI
@@ -45,5 +46,8 @@ if __name__ == "__main__":
     llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
 
     chain = LLMChain(llm=llm, prompt=summary_prompt_template)
+
+    linkedin_profile_url = profile_lookup(name="Vincent Paglioni")
+    linkedin_data = scrape_linkedin_profile(profile_url=linkedin_profile_url)
 
     print(chain.run(linkedin_data=linkedin_data))
