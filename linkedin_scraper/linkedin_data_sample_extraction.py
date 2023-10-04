@@ -2,6 +2,7 @@ import os
 import json
 import requests
 
+
 # Read the API key from environment variables
 api_key = os.environ.get("PROXYCURL_API_KEY")
 
@@ -31,7 +32,7 @@ response._content
 
 # Fetch the Gist content
 gist_response = requests.get(
-    "https://gist.githubusercontent.com/F0R-L00P/7631ec7999d94eaedd33c9a803b79153/raw/93eb61f182828a66954bb3f73cb366411c8b9580/prof-profile.json"
+    "prof-profile.json"
 )
 
 # Replace improperly escaped apostrophes

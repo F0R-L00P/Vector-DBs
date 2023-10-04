@@ -1,8 +1,10 @@
+# fmt: off
 from langchain.agents import initialize_agent, Tool, AgentType
 from langchain.chat_models import ChatOllama, ChatOpenAI
 from langchain import PromptTemplate
-from agent_tools.tools import get_profile_url
+from tools import get_profile_url
 
+# fmt: on
 
 # NOTE: The agent uses information from the doc string to perform the task.
 # important to note that the tool is what allows the agent to interact with the
@@ -24,7 +26,7 @@ def profile_lookup(name: str) -> str:
     tools_for_agent = [
         Tool(
             name="crawl Google for LinkedIn profile",
-            function=get_profile_url,
+            func=get_profile_url,
             description="useful for when you need to get the LinkedIn profile of a person",
         )
     ]

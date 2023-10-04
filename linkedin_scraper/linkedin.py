@@ -1,10 +1,12 @@
+# fmt: off
 import os
 import requests
 
-from agents.linkedin_agents import profile_lookup
+from linkedin_agents import profile_lookup
 from langchain import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.chat_models import ChatOllama, ChatOpenAI
+# fmt: on
 
 
 def scrape_linkedin_profile(profile_url: str):

@@ -1,4 +1,6 @@
+# fmt: off
 from langchain.serpapi import SerpAPIWrapper
+# fmt: on
 
 
 # function to get profile url
