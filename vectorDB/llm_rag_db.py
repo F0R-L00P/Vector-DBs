@@ -125,59 +125,13 @@ print(f"{chunks_ds.count()} chunks")
 chunks_ds.show(1)
 
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
-import pandas as pd
 
-# Time points and resilience values
-time = np.linspace(0, 10, 100)
-t1 = 2  # Time of disruption
-t2 = 8  # Time of recovery
-resilience = np.piecewise(
-    time,
-    [time < t1, (time >= t1) & (time <= t2), time > t2],
-    [1, lambda t: 1 - (0.5 * (t - t1) / (t2 - t1)), 1],
-)
 
-# Data preparation
-data = pd.DataFrame({"Time": time, "Resilience Indicator (%)": resilience * 100})
 
-# Seaborn settings and plot
-sns.set_theme(
-    style="whitegrid"
-)  # Set Seaborn theme to show white background with grid lines
-plt.figure(figsize=[8, 4])
-ax = sns.lineplot(
-    x="Time",
-    y="Resilience Indicator (%)",
-    data=data,
-    linestyle="--",
-    color="k",
-    label="Expected functionality",
-)
 
-# Matplotlib for filling between lines and adding lines
-ax.fill_between(
-    time,
-    0,
-    resilience * 100,
-    where=(time >= t1) & (time <= t2),
-    color="grey",
-    alpha=0.4,
-    label="Resilience Loss",
-)
-ax.axhline(y=100, color="r", linestyle="-", linewidth=2.5, label="Normal Functionality")
-ax.axvline(x=t1, color="b", linestyle=":", label="Event Occurs")
-ax.axvline(x=t2, color="g", linestyle=":", label="Full Recovery")
 
-# Final touches
-ax.set(title="System Resiliency", xlabel="Time", ylabel="Resilience Indicator (%)")
-ax.set_xticks([0, t1, t2, 10])
-ax.set_xticklabels(["0", "$t_1$ (Disruption)", "$t_2$ (Recovery)", "10"])
-ax.set_ylim(0, 110)
-ax.set_xlim(0, 10)
-ax.legend()
-sns.despine()  # Removes the top and right border
-plt.tight_layout()  # Adjusts plot parameters for best fit
-plt.show()
+
+
+
+
+
