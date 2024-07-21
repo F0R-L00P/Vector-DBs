@@ -1,0 +1,28 @@
+# Core Machine Learning Libraries
+transformers
+torch
+faiss-cpu
+datasets
+
+# Data Processing and Analysis
+numpy
+pandas
+scikit-learn
+
+# Progress Bar
+tqdm
+
+# Jupyter and IPython
+jupyter
+ipykernel
+
+# Visualization
+matplotlib
+seaborn
+
+# Miscellaneous
+requests
+beautifulsoup4
+
+# Text Processing
+nltk
